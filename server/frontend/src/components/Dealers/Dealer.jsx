@@ -22,7 +22,9 @@ const Dealer = () => {
   let id =params.id;
   let dealer_url = root_url+`djangoapp/dealer/${id}`;
   let reviews_url = root_url+`djangoapp/reviews/dealer/${id}`;
+//   let reviews_url = 'https://yafetphilipo-3030.theiadockernext-1-labs-prod-theiak8s-4-tor01.proxy.cognitiveclass.ai/fetchDealer/'+`${id}`;
   let post_review = root_url+`postreview/${id}`;
+//   let post_review = 'https://yafetphilipo-3030.theiadockernext-1-labs-prod-theiak8s-4-tor01.proxy.cognitiveclass.ai/fetchDealer/'+`${id}`;
   
   const get_dealer = async ()=>{
     const res = await fetch(dealer_url, {
@@ -77,6 +79,7 @@ return(
       <div class="reviews_panel">
       {reviews.length === 0 && unreviewed === false ? (
         <text>Loading Reviews....</text>
+        
       ):  unreviewed === true? <div>No reviews yet! </div> :
       reviews.map(review => (
         <div className='review_panel'>

@@ -11,8 +11,12 @@ const Dealers = () => {
 
   // let root_url = window.location.origin
   let dealer_url ="/djangoapp/get_dealers";
+//   let dealer_url ="https://yafetphilipo-3030.theiadockernext-1-labs-prod-theiak8s-4-tor01.proxy.cognitiveclass.ai/fetchDealers";
+//   let dealer_url ="/fetchDealers/";
   
   let dealer_url_by_state = "/djangoapp/get_dealers/";
+//   let dealer_url_by_state = "/fetchDealers/";
+//   let dealer_url_by_state = "https://yafetphilipo-3030.theiadockernext-1-labs-prod-theiak8s-4-tor01.proxy.cognitiveclass.ai/fetchDealers";
  
   const filterDealers = async (state) => {
     dealer_url_by_state = dealer_url_by_state+state;
