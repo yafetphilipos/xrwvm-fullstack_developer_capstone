@@ -1,3 +1,4 @@
+"""REST API"""
 # Uncomment the imports below before you add the function code
 import requests
 import os
@@ -11,25 +12,20 @@ sentiment_analyzer_url = os.getenv(
     'sentiment_analyzer_url',
     default="http://localhost:5050/")
 
+
 # def get_request(endpoint, **kwargs):
 def get_request(endpoint, **kwargs):
+    """get req"""
     params = ""
     if(kwargs):
-        for key,value in kwargs.items():
-            params=params+key+"="+value+"&"
+        for key, value in kwargs.items():
+            params = params + key+ "=" + value + "&"
         print("somenothing")
-    else:
-        print("nothing")
-
     request_url = backend_url+endpoint+"?"+params
-
-    print("GET from {} ".format(request_url))
-    
+    print(f"GET from {request_url} ")
     try:
         # Call get method of requests library with URL and parameters
-        print("RESRAPI")
         response = requests.get(request_url)
-        print("RESRAPI")
         return response.json()
     except:
         # If any error occurs
@@ -52,7 +48,7 @@ def analyze_review_sentiments(text):
 def post_review(data_dict):
     request_url = backend_url+"/insert_review"
     try:
-        response = requests.post(request_url,json=data_dict)
+        response = requests.post(request_url, json=data_dict)
         print(response.json())
         return response.json()
     except:
